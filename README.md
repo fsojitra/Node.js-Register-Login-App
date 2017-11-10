@@ -11,11 +11,11 @@ These instructions will get you a copy of the project up and running on your loc
 You need to have installed Node.js, NPM and MongoDB in your System.
 
 ### Installing
-
+```
 npm install
+```
 
 ### To Run
-
 ```
 nodemon server.js
 ```
