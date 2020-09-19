@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="./css/main.css">
 
 	<script type="text/javascript">
-		$(document).ready(function(){
+		$(document).ready( () => {
 
-			$( "#form" ).submit(function(event) {
+			$( "#form" ).submit( (event) => {
 				event.preventDefault();
 
 				$.ajax({
@@ -19,21 +19,21 @@
 					url: '/login',
 					data: $('#form').serialize(),
 					dataType: "json",
-					success: function(response){
+					success: (response) => {
 						//alert("a");
 						//console.log(response.Success);
 						$('#form')[0].reset();
 
 						document.getElementById("check").innerHTML=response.Success;
          					//ADD THIS CODE
-         					setTimeout(function(){
+         					setTimeout( () => {
          						document.getElementById("check").innerHTML="";
          					},3000);
          					if (response.Success=="Success!") {
          						document.getElementById("aa").click();
          					};
          				},
-         				error: function() {
+         				error: () => {
          				}
          			})
 			});
