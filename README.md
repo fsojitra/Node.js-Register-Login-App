@@ -23,5 +23,8 @@ nodemon server.js
 Code is Running on 
 + http://localhost:3000/
 
+### To checkout live
++ https://nodejs-register-login-app.herokuapp.com
+
 :heart_eyes: Thanks
 
