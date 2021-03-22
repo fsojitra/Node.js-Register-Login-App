@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 
 const MongoDBURI = process.env.MONGO_URI || 'mongodb://localhost/ManualAuth';
 
-mongoose.connect(MongoDBURI);
+mongoose.connect(MongoDBURI, { useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
