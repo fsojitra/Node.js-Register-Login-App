@@ -1,15 +1,20 @@
-var express = require('express');
-var ejs = require('ejs');
-var path = require('path');
-var app = express();
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
+const express = require('express');
+const ejs = require('ejs');
+const path = require('path');
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
-mongoose.connect('mongodb://localhost/ManualAuth');
+const MongoDBURI = process.env.MONGO_URI || 'mongodb://localhost/ManualAuth';
 
-var db = mongoose.connection;
+mongoose.connect(MongoDBURI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true
+});
+
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
 });
@@ -31,12 +36,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(__dirname + '/views'));
 
-var index = require('./routes/index');
+const index = require('./routes/index');
 app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  var err = new Error('File Not Found');
+  const err = new Error('File Not Found');
   err.status = 404;
   next(err);
 });
@@ -50,6 +55,6 @@ app.use((err, req, res, next) => {
 
 
 // listen on port 3000
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Express app listening on port 3000');
 });
