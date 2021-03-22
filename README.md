@@ -25,6 +25,7 @@ Code is Running on
 
 ### To checkout live
 [go](https://nodejs-register-login-app.herokuapp.com){:target="_blank"}
+<a href="https://nodejs-register-login-app.herokuapp.com" target="_blank">https://nodejs-register-login-app.herokuapp.com</a>
 
 :heart_eyes: Thanks
 
