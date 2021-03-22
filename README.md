@@ -24,7 +24,7 @@ Code is Running on
 + http://localhost:3000/
 
 ### To checkout live
-[https://nodejs-register-login-app.herokuapp.com](https://nodejs-register-login-app.herokuapp.com){:target="_blank" rel="noopener"}
+[go](https://nodejs-register-login-app.herokuapp.com){:target="_blank"}
 
 :heart_eyes: Thanks
 
