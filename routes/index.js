@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
+const express = require('express');
+const router = express.Router();
+const User = require('../models/user');
 
 router.get('/', (req, res, next) => {
 	return res.render('index.ejs');
@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 	console.log(req.body);
-	var personInfo = req.body;
+	let personInfo = req.body;
 
 
 	if (!personInfo.email || !personInfo.username || !personInfo.password || !personInfo.passwordConf) {
@@ -19,7 +19,7 @@ router.post('/', (req, res, next) => {
 
 			User.findOne({ email: personInfo.email }, (err, data) => {
 				if (!data) {
-					var c;
+					let c;
 					User.findOne({}, (err, data) => {
 
 						if (data) {
@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
 							c = 1;
 						}
 
-						var newPerson = new User({
+						let newPerson = new User({
 							unique_id: c,
 							email: personInfo.email,
 							username: personInfo.username,
@@ -84,8 +84,8 @@ router.post('/login', (req, res, next) => {
 router.get('/profile', (req, res, next) => {
 	console.log("profile");
 	User.findOne({ unique_id: req.session.userId }, (err, data) => {
-		console.log("data");
-		console.log(data);
+		// console.log("data");
+		// console.log(data);
 		if (!data) {
 			res.redirect('/');
 		} else {
