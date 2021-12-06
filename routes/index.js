@@ -8,9 +8,7 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-	console.log(req.body);
 	let personInfo = req.body;
-
 
 	if (!personInfo.email || !personInfo.username || !personInfo.password || !personInfo.passwordConf) {
 		res.send();
@@ -23,7 +21,6 @@ router.post('/', (req, res, next) => {
 					User.findOne({}, (err, data) => {
 
 						if (data) {
-							console.log("if");
 							c = data.unique_id + 1;
 						} else {
 							c = 1;
@@ -62,16 +59,12 @@ router.get('/login', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
-	//console.log(req.body);
 	User.findOne({ email: req.body.email }, (err, data) => {
 		if (data) {
 
 			if (data.password == req.body.password) {
-				//console.log("Done Login");
 				req.session.userId = data.unique_id;
-				//console.log(req.session.userId);
 				res.send({ "Success": "Success!" });
-
 			} else {
 				res.send({ "Success": "Wrong password!" });
 			}
@@ -82,21 +75,16 @@ router.post('/login', (req, res, next) => {
 });
 
 router.get('/profile', (req, res, next) => {
-	console.log("profile");
 	User.findOne({ unique_id: req.session.userId }, (err, data) => {
-		// console.log("data");
-		// console.log(data);
 		if (!data) {
 			res.redirect('/');
 		} else {
-			//console.log("found");
 			return res.render('data.ejs', { "name": data.username, "email": data.email });
 		}
 	});
 });
 
 router.get('/logout', (req, res, next) => {
-	console.log("logout")
 	if (req.session) {
 		// delete session object
 		req.session.destroy((err) => {
@@ -114,14 +102,10 @@ router.get('/forgetpass', (req, res, next) => {
 });
 
 router.post('/forgetpass', (req, res, next) => {
-	//console.log('req.body');
-	//console.log(req.body);
 	User.findOne({ email: req.body.email }, (err, data) => {
-		console.log(data);
 		if (!data) {
 			res.send({ "Success": "This Email Is not regestered!" });
 		} else {
-			// res.send({"Success":"Success!"});
 			if (req.body.password == req.body.passwordConf) {
 				data.password = req.body.password;
 				data.passwordConf = req.body.passwordConf;

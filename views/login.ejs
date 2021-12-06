@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Login Register App</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,9 +10,9 @@
 	<link rel="stylesheet" href="./css/main.css">
 
 	<script type="text/javascript">
-		$(document).ready( () => {
+		$(document).ready(() => {
 
-			$( "#form" ).submit( (event) => {
+			$("#form").submit((event) => {
 				event.preventDefault();
 
 				$.ajax({
@@ -20,41 +21,40 @@
 					data: $('#form').serialize(),
 					dataType: "json",
 					success: (response) => {
-						//alert("a");
-						//console.log(response.Success);
 						$('#form')[0].reset();
 
-						document.getElementById("check").innerHTML=response.Success;
-         					//ADD THIS CODE
-         					setTimeout( () => {
-         						document.getElementById("check").innerHTML="";
-         					},3000);
-         					if (response.Success=="Success!") {
-         						document.getElementById("aa").click();
-         					};
-         				},
-         				error: () => {
-         				}
-         			})
+						document.getElementById("check").innerHTML = response.Success;
+						//ADD THIS CODE
+						setTimeout(() => {
+							document.getElementById("check").innerHTML = "";
+						}, 3000);
+						if (response.Success == "Success!") {
+							document.getElementById("aa").click();
+						};
+					},
+					error: () => {
+					}
+				})
 			});
 
 		});
 	</script>
 </head>
+
 <body>
 	<div class="col-md-4 col-md-offset-4 form-card">
 		<div>
 			<p>Login</p>
 		</div>
 		<div class="form-group ">
-			<form id="form" method="post" >
-				<input type="text" name="email" placeholder="E-mail" required="" class="form-control"><br/>
-				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br/>
+			<form id="form" method="post">
+				<input type="text" name="email" pattern="[-!#$%&'*+\/0-9=?ก-๙A-Z^_a-z`{|}~](\.?[-!#$%&'*+\/0-9=?ก-๙A-Z^_a-z`{|}~])*@[ก-๙a-zA-Z0-9](-*\.?[ก-๙a-zA-Z0-9])*\.[ก-๙a-zA-Z](-?[ก-๙a-zA-Z0-9])+$" placeholder="E-mail" required="" class="form-control"><br />
+				<input type="password" name="password" placeholder="Password" required="" class="form-control"><br />
 				<input type="submit" value="Login" class="btn btn-success">
 			</form>
 		</div>
 		<div class="mssg bg-danger">
-			<span id="check" ></span>
+			<span id="check"></span>
 		</div>
 		<div id="LangTable"><a href="/profile" id="aa"></a>
 		</div>
@@ -64,4 +64,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
