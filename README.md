@@ -26,5 +26,6 @@ Code is Running on
 ### To checkout live
 <a href="https://nodejs-register-login-app.herokuapp.com" target="_blank">https://nodejs-register-login-app.herokuapp.com</a>
 
-:heart_eyes: Thanks
+Do not forget to leave a star! :hugs:
 
+:heart_eyes: Thanks
