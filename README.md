@@ -8,7 +8,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You need to have installed Node.js, NPM and MongoDB in your System.
+You need to have installed Node.js and Npm <br />
+```curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -```<br />
+```curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -``` <br />
+```sudo apt-get install -y nodejs```<br />
+```sudo apt-get install -y npm``` <br />
+
+Also install MongoDB in your System <br />
+
+[MongoDB Installation](https://docs.mongodb.com/manual/installation/)
 
 ### Installing
 ```
