@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
 	let personInfo = req.body;
 
-	if (!personInfo.email || !personInfo.username || !personInfo.password || !personInfo.passwordConf) {
+	if (!personInfo.email || !personInfo.username || !personInfo.name || !personInfo.password || !personInfo.passwordConf) {
 		res.send();
 	} else {
 		if (personInfo.password == personInfo.passwordConf) {
@@ -28,6 +28,7 @@ router.post('/', (req, res, next) => {
 
 						let newPerson = new User({
 							unique_id: c,
+							name: personInfo.name,
 							email: personInfo.email,
 							username: personInfo.username,
 							password: personInfo.password,
