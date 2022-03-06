@@ -30,6 +30,7 @@ router.post('/', (req, res, next) => {
 							unique_id: c,
 							name: personInfo.name,
 							email: personInfo.email,
+							number: personInfo.number,
 							username: personInfo.username,
 							password: personInfo.password,
 							passwordConf: personInfo.passwordConf
@@ -80,7 +81,7 @@ router.get('/profile', (req, res, next) => {
 		if (!data) {
 			res.redirect('/');
 		} else {
-			return res.render('data.ejs', { "name": data.name, "email": data.email, "username": data.username });
+			return res.render('data.ejs', { "name": data.name, "email": data.email, "username": data.username, "number": data.number });
 		}
 	});
 });

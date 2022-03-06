@@ -7,6 +7,7 @@ userSchema = new Schema( {
 	email: String,
 	name: String,
 	username: String,
+	number: String,
 	password: String,
 	passwordConf: String,
 	createdAt: {
