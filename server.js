@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-const MongoDBURI = process.env.MONGO_URI || 'mongodb://localhost/ManualAuth';
+const MongoDBURI = process.env.MONGO_URI || 'mongodb+srv://fiverr:12345@cluster0.d2fh1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 mongoose.connect(MongoDBURI, {
   useUnifiedTopology: true,
